@@ -4,6 +4,9 @@
 Tool to create the `led_instruction`s from an easier to create TOML file.
 
  ```toml
+KeyLEDCount = 87
+EdgeLEDCount = 32
+
 [Colors]
 A = "FF0000" # Alpha, Space Keys
 B = "00FF00" # Punctuation, Symbol Keyslion
@@ -16,7 +19,6 @@ E = "FFFF00" # Number Keys
 # If not provided, this lighting configuration will be displayed on all layers and overridden where specified.
 # MatchLayers = [0]
 
-KeyLEDCount = 87
 KeyLEDs = '''
 	A AAAA AAAA AAAA AAA
 
@@ -27,12 +29,12 @@ KeyLEDs = '''
 	AAA   A   AAAA   AAA
 '''
 
-EdgeLEDCount = 32
 EdgeLEDs = '''
 	DDDDDDDDDDDDD
 	DDD
 	DDDDDDDDDDDDD
 	DDD
 '''
- 
 ```
+
+Refer to the [patriotic.toml](samples/patriotic.toml) sample configuration for a more complet example including layer matching.
