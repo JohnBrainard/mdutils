@@ -37,7 +37,7 @@ func (m *KeyMap) CreateInstructions(layer config.Layer) []LedInstruction {
 		if leds != "" {
 			ids := m.CreateIDS(leds)
 
-			instruction := NewLedInstruction(ids, colorValue)
+			instruction := NewLedInstruction(ids, colorValue, layer.MatchLayers)
 			instructions = append(instructions, instruction)
 		}
 	}
@@ -71,7 +71,7 @@ func (m *KeyMap) CreateBinaryString(colorId string, layer config.Layer) string {
 		}
 	}
 
-	for i := len(layer.KeyLEDs); i < layer.KeyLEDCount; i++ {
+	for i := len(layer.KeyLEDs); i < m.cfg.KeyLEDCount; i++ {
 		str.WriteByte('0')
 	}
 
@@ -84,7 +84,7 @@ func (m *KeyMap) CreateBinaryString(colorId string, layer config.Layer) string {
 		}
 	}
 
-	for i := len(layer.EdgeLEDs); i < layer.EdgeLEDCount; i++ {
+	for i := len(layer.EdgeLEDs); i < m.cfg.EdgeLEDCount; i++ {
 		str.WriteByte('0')
 	}
 

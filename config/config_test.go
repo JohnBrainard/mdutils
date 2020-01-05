@@ -9,6 +9,9 @@ import (
 )
 
 const configTOML = `
+KeyLEDCount = 87
+EdgeLEDCount = 32
+
 [Colors]
 A = "FF0000" # Alpha, Space Keys
 B = "00FF00" # Punctuation, Symbol Keyslion
@@ -17,8 +20,6 @@ D = "00FFFF" # Navigation Keys
 E = "FFFF00" # Number Keys
 
 [[Layers]]
-KeyLEDCount = 87
-EdgeLEDCount = 32
 
 KeyLEDs = '''
 	CCC B CCCC DDD
@@ -43,6 +44,9 @@ func TestRead(t *testing.T) {
 		}
 
 		expected := Config{
+			KeyLEDCount:  87,
+			EdgeLEDCount: 32,
+
 			Colors: map[string]HexColor{
 				"A": "FF0000",
 				"B": "00FF00",
@@ -51,9 +55,6 @@ func TestRead(t *testing.T) {
 				"E": "FFFF00",
 			},
 			Layers: []Layer{{
-				KeyLEDCount:  87,
-				EdgeLEDCount: 32,
-
 				KeyLEDs:  LEDsFromString("CCCBCCCCDDDCAAAAAAABBBCDCAAAAAAAAABBCCAAAAAAAAAABBBDDDBEEEEEEEEEEBBCDDDCCCCCCCCCCCCCDDD"),
 				EdgeLEDs: LEDsFromString("ABCABCABCABCABABABCABCABCABCAABA"),
 			}},

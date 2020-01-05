@@ -10,14 +10,14 @@ import (
 
 func TestKeyMap_CreateInstructions(t *testing.T) {
 	cfg := config.Config{
+		KeyLEDCount:  87,
+		EdgeLEDCount: 32,
+
 		Colors: map[string]config.HexColor{
 			"A": "FF0000",
 			"B": "00FF00",
 		},
 		Layers: []config.Layer{{
-			KeyLEDCount:  87,
-			EdgeLEDCount: 32,
-
 			KeyLEDs:  config.LEDsFromString("AAA B AAAA BBB	A BBBBBBB AAA B A A BBBBBBBBB AA BA BBBBBBBBBB AAA BBB A BBBBBBBBBB AA B AAA B BBBB BBBB BBBB BBB"),
 			EdgeLEDs: config.LEDsFromString("ABABABABABABA BAB BABABABABABAB ABA"),
 		}},

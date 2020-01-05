@@ -8,9 +8,13 @@ import (
 
 type Config struct {
 	Template Template
-	Colors   map[string]HexColor
-	Layers   []Layer
-	Edges    Edges
+
+	KeyLEDCount  int
+	EdgeLEDCount int
+
+	Colors map[string]HexColor
+	Layers []Layer
+	Edges  Edges
 }
 
 func Read(rdr io.Reader) (Config, error) {
@@ -23,6 +27,6 @@ func Read(rdr io.Reader) (Config, error) {
 
 func (c *Config) Validate() {
 	for _, layer := range c.Layers {
-		layer.Validate()
+		layer.Validate(c)
 	}
 }

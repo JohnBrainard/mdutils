@@ -12,7 +12,10 @@ const ledInstructionTemplate = `
 led_instruction_t led_instructions[] = {
 	{{range $instructionIndex, $instruction := .Instructions}}
 	{
-		.flags = LED_FLAG_MATCH_ID | LED_FLAG_USE_RGB,
+		.flags = {{$instruction.Flags}},
+		{{- if $instruction.MatchLayers }}
+		.layer = {{index $instruction.MatchLayers 0}},
+		{{end}}
 
 		{{- range $idIndex, $id := $instruction.IDs }}
 

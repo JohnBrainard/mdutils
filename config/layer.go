@@ -10,11 +10,8 @@ type Layer struct {
 	Keys        string
 	Edges       string
 
-	KeyLEDs     LEDs
-	KeyLEDCount int
-
-	EdgeLEDs     LEDs
-	EdgeLEDCount int
+	KeyLEDs  LEDs
+	EdgeLEDs LEDs
 }
 
 func (l *Layer) EdgeColors() []string {
@@ -30,12 +27,12 @@ func (l *Layer) EdgeColors() []string {
 	return colors
 }
 
-func (l *Layer) Validate() {
-	if l.KeyLEDCount < len(l.KeyLEDs) {
+func (l *Layer) Validate(cfg *Config) {
+	if cfg.KeyLEDCount < len(l.KeyLEDs) {
 		panic(errors.New("KeyLEDCount must be greater than or equal to the number of KeyLEDs"))
 	}
 
-	if l.EdgeLEDCount < len(l.EdgeLEDs) {
+	if cfg.EdgeLEDCount < len(l.EdgeLEDs) {
 		panic(errors.New("EdgeLEDCount must be greater than or equal to the number of EdgeLEDs"))
 	}
 }
