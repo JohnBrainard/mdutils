@@ -1,9 +1,3 @@
-# Massdrop Keyboard Utilities
-
-## ledgen
-Tool to create the `led_instruction`s from an easier to create TOML file.
-
- ```toml
 [Colors]
 A = "FF0000" # Alpha, Space Keys
 B = "00FF00" # Punctuation, Symbol Keyslion
@@ -34,5 +28,3 @@ EdgeLEDs = '''
 	DDDDDDDDDDDDD
 	DDD
 '''
- 
-```
